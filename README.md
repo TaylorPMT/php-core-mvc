@@ -2,7 +2,6 @@
 
 Đây là một khung MVC đơn giản để xây dựng các ứng dụng web bằng PHP. Nó miễn phí và [mã nguồn mở](GIẤY PHÉP).
 
-Nó được tạo cho khóa học [Viết PHP như một chuyên gia: xây dựng khung MVC từ đầu](https://davehollingworth.net/phpmvcg). Khóa học giải thích cách khung được kết hợp với nhau, xây dựng khung đó từng bước từ đầu. Nếu bạn đã tham gia khóa học, thì bạn sẽ biết cách sử dụng nó. Nếu không, xin vui lòng làm theo các hướng dẫn dưới đây.
 
 ## Starting an application using this framework
 
