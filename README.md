@@ -3,12 +3,13 @@
 Đây là một khung MVC đơn giản để xây dựng các ứng dụng web bằng PHP. Nó miễn phí và [mã nguồn mở](GIẤY PHÉP).
 
 Nó được tạo cho khóa học [Viết PHP như một chuyên gia: xây dựng khung MVC từ đầu](https://davehollingworth.net/phpmvcg). Khóa học giải thích cách khung được kết hợp với nhau, xây dựng khung đó từng bước từ đầu. Nếu bạn đã tham gia khóa học, thì bạn sẽ biết cách sử dụng nó. Nếu không, xin vui lòng làm theo các hướng dẫn dưới đây.
+
 ## Starting an application using this framework
 
-1. 
+1.
 1. Run **composer update**đ ể cài đặt các phụ thuộc của dự án.
 
-1.Định cấu hình máy chủ web của bạn để có thư mục ** public ** làm thư mục gốc của web. 
+1.Định cấu hình máy chủ web của bạn để có thư mục ** public ** làm thư mục gốc của web.
 1.Mở [App / Config.php] (App / Config.php) và nhập dữ liệu cấu hình cơ sở dữ liệu của bạn.
 
 1. Tạo routes, add controllers, views and models.
@@ -19,10 +20,9 @@ Xem dưới đây để biết thêm chi tiết.
 
 Cài đặt cấu hình được lưu trữ trong lớp [App / Config.php] (App / Config.php). Cài đặt mặc định bao gồm dữ liệu kết nối cơ sở dữ liệu và cài đặt để hiển thị hoặc ẩn chi tiết lỗi. Bạn có thể truy cập các cài đặt trong mã của mình như sau: `Config :: DB_HOST`. Bạn có thể thêm cài đặt cấu hình của riêng mình tại đây.
 
-
 ## Routing
 
-[Router](Core/Router.php) dịch URL thành bộ điều khiển và hành động. Các tuyến được thêm vào [Frontend Controller](public/index.php). Một tuyến đường về nhà mẫu được bao gồm để định tuyến đến hành động `index` trong [Home Controller](App/Controllers/Home.php).
+[Router](Core/Router.php) dịch URL thành bộ điều khiển và hành động. Các tuyến được thêm vào [Frontend Controller](public/index.php). Ví dụ router home được includes routers đến `index` trong [Home Controller](App/Controllers/Home.php).
 
 Routes bằng phương thức `add`. Bạn có thể thêm các tuyến URL cố định và chỉ định bộ điều khiển và hành động, như sau:
 
@@ -37,13 +37,13 @@ Hoặc bạn có thể routes **variables**, như thế này:
 $router->add('{controller}/{action}');
 ```
 
-Ngoài  ra trong **controller** and **action**,bạn có thể chỉ định bất kỳ tham số nào bạn thích trong dấu ngoặc nhọn và cũng có thể chỉ định biểu thức chính quy tùy chỉnh cho tham số đó:
+Ngoài ra trong **controller** and **action**,bạn có thể chỉ định bất kỳ tham số nào bạn thích trong dấu ngoặc nhọn và cũng có thể chỉ định biểu thức chính quy tùy chỉnh cho tham số đó:
 
 ```php
 $router->add('{controller}/{id:\d+}/{action}');
 ```
 
-Có thể định nghĩa  namespace cho controller:
+Có thể định nghĩa namespace cho controller:
 
 ```php
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
@@ -55,14 +55,14 @@ Controllers respond hành động của users (clicking on a link, submitting a 
 
 Controllers được lưu trữ ở `App/Controllers` folder. Một ví dụ [Home controller](App/Controllers/Home.php) bao gồm . Controller classes cần phải ở trong thư mục `App/Controllers` namespace.Có thể add thêm subdirectories cho thư mục controllers, vì vậy khi thêm một route hoặc controller cần phải chỉ định tên namespace (Xem phần routing ở bên trên).
 
-Controller classes chứa các phương thức là các hành động .Để tạo một hành động , Thêm một **`Action`** suffix cho method name. Ví dụ controller trong [App/Controllers/Home.php](App/Controllers/Home.php) có một ví dụ  `index` hành động.
+Controller classes chứa các phương thức là các hành động .Để tạo một hành động , Thêm một **`Action`** suffix cho method name. Ví dụ controller trong [App/Controllers/Home.php](App/Controllers/Home.php) có một ví dụ `index` hành động.
 
-Có thể truy cập route parameters (Ví dụ **id** parameter được hiển thị trong các ví dụ routes ở trên  ) trong các parameters thông qua thuộc tính `$this->route_params` .
+Có thể truy cập route parameters (Ví dụ **id** parameter được hiển thị trong các ví dụ routes ở trên ) trong các parameters thông qua thuộc tính `$this->route_params` .
 
 ### Action filters
 
-Controllers có thể  **before** và **after** filter methods. Đây là các phương thức được gọi trước qua sau **every** action method call trong một controller. Ví dụ, hữu ích cho việc xác thực, đảm bảo rằng người dùng đã đăng nhập trước khi cho phép họ thực hiện một hành động. Tùy chọn thêm một
-**before filter** đến một  controller như thế này:
+Controllers có thể **before** và **after** filter methods. Đây là các phương thức được gọi trước qua sau **every** action method call trong một controller. Ví dụ, hữu ích cho việc xác thực, đảm bảo rằng người dùng đã đăng nhập trước khi cho phép họ thực hiện một hành động. Tùy chọn thêm một
+**before filter** đến một controller như thế này:
 
 ```php
 /**
@@ -94,8 +94,8 @@ Views are used to display information (normally HTML). View files go in the `App
 
 ```php
 View::render('Home/index.php', [
-    'name'    => 'Dave',
-    'colours' => ['red', 'green', 'blue']
+  'name' => 'Dave',
+  'colours' => ['red', 'green', 'blue'],
 ]);
 ```
 
@@ -103,8 +103,8 @@ The second format uses the [Twig](http://twig.sensiolabs.org/) templating engine
 
 ```php
 View::renderTemplate('Home/index.html', [
-    'name'    => 'Dave',
-    'colours' => ['red', 'green', 'blue']
+  'name' => 'Dave',
+  'colours' => ['red', 'green', 'blue'],
 ]);
 ```
 
