@@ -22,7 +22,7 @@ Cài đặt cấu hình được lưu trữ trong lớp [App / Config.php] (App 
 
 ## Routing
 
-[Router](Core/Router.php) dịch URL thành bộ điều khiển và hành động. Các tuyến được thêm vào [bộ điều khiển phía trước](public/index.php). Một tuyến đường về nhà mẫu được bao gồm để định tuyến đến hành động `index` trong [Bộ điều khiển gia đình](App/Controllers/Home.php).
+[Router](Core/Router.php) dịch URL thành bộ điều khiển và hành động. Các tuyến được thêm vào [Frontend Controller](public/index.php). Một tuyến đường về nhà mẫu được bao gồm để định tuyến đến hành động `index` trong [Home Controller](App/Controllers/Home.php).
 
 Routes bằng phương thức `add`. Bạn có thể thêm các tuyến URL cố định và chỉ định bộ điều khiển và hành động, như sau:
 
